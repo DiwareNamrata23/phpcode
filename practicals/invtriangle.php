@@ -1,24 +1,26 @@
 <?php
 
-// Function to generate inverted triangle pattern
-function invertedTriangle($rows) {
-    for ($i = $rows; $i >= 1; $i--) {
-        // Print spaces
-        for ($j = $rows - $i; $j > 0; $j--) {
+function printInvertedTriangle($height) {
+    for ($i = $height; $i >= 1; $i--) {
+        // Print leading spaces
+        for ($j = $height - $i; $j > 0; $j--) {
             echo " ";
         }
 
         // Print asterisks
-        for ($k = 2 * $i - 1; $k >= 1; $k--) {
+        for ($k = 1; $k <= 2 * $i - 1; $k++) {
             echo "*";
         }
 
-        echo "\n";
+        // Move to the next line
+        echo PHP_EOL;
     }
 }
 
-// Example usage
-$rows = 5;
-invertedTriangle($rows);
+// Set the height of the inverted triangle
+$height = 5;
 
+// Call the function to print the inverted triangle
+printInvertedTriangle($height);
 ?>
+
