@@ -1,98 +1,72 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+// use Practicals\Song;
+use App\Models\Song;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/veggies', function () {
+    return view('veggies');
+});
+Route::get('/veggies/{NameOfVeggie}', function (string $NameOfVeggie) {
+    return $NameOfVeggie;
+});
 
 
+Route::get('/veggies/{NameOfVeggie}', function (string $NameOfVeggie) {
+    return $NameOfVeggie;
+})->whereIn('NameOfVeggie', ['aaloo', 'gobhi', 'bhindi','baigan']);
 
-namespace Tests\Feature;
+/* Route::get('/songs_static', function () {
+    return view('songs_static');
+});
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
+Route::get('/songs_spotify', function () {
+    return view('songs_spotify');
+});
 
-class BaiganTest extends TestCase
-{
-    /**
-     * A basic feature test baigan.
-     */
-    public function testBaiganOK(): void
-    {
-        $response = $this->get('/veggies/baigan');
+// reading From database
+Route::get('/songs', function () {
+    return view('songs', [ 'songs' => Song::all() ] );
+});
 
-        $response->assertStatus(200);
-    }
+Route::get('/playlist/{playlistId}', function (string $playlistId) {
+    return view('playlist', ['songs' => Song::all(), 'playlistId' => $playlistId ]);
+})->where('playlistId', '[0-9]+');
+*/
 
-    /**
-     * Feature to test all veggies
-     */
-    public function testVeggiesOK(): void
-    {
-      $response = $this->get('/veggies/bhindi');
+// Route::get('/songs_static', function () {
+//     $song1 = new Song();
+//     $song1->setTitle("Stay With Me");
+//     $song1->setArtist("Chanyeol and Punch");
 
-      $response->assertStatus(200);
-    }
+//     $song2 = new Song();
+//     $song2->setTitle("Ice Cream");
+//     $song2->setArtist("BlankPink");
 
-    /**
-     * Feature to test seeing aaloo gobhi
-     */
-    public function testVeggiesSeeAalooGobhi(): void
-    {
-      $response = $this->get('/veggies/aaloo');
+//     $song3 = new Song();
+//     $song3->setTitle("Love you like a love song");
+//     $song3->setArtist("Salena Gomez");
 
-      $response->assertSee("aaloo");
+//     $song4 = new Song();
+//     $song4->setTitle("Monalisa");
+//     $song4->setArtist("mxmtoon");
 
-      $response = $this->get('/veggies/gobhi');
-
-      $response->assertSee("gobhi");
-    }
-
-    /**
-     * Feature to test seeing baigan, bhindi, aaloo, gobhi but reject
-     * pyaas, adrak, lassan
-     */
-    public function testVeggiesAdrakLassan(): void
-    {
-      $response = $this->get('/veggies/baigan');
-      $response->assertSee("baigan");
-
-      $response = $this->get('/veggies/bhindi');
-      $response->assertSee("bhindi");
-
-      $response = $this->get('/veggies/aaloo');
-      $response->assertSee("aaloo");
-
-      $response = $this->get('/veggies/gobhi');
-      $response->assertSee("gobhi");
-
-      // Reject pyaaz adrak lassan xkjbcjhbvxcj
-      $response = $this->get('/veggies/pyaaz');
-      $response->assertStatus(404);
-
-      $response = $this->get('/veggies/adrak');
-      $response->assertStatus(404);
-
-      $response = $this->get('/veggies/lassan');
-      $response->assertStatus(404);
-
-      $response = $this->get('/veggies/jvhjvsdfsfvsj');
-      $response->assertStatus(404);
-
-    }
+//     return view('songs',[ 'songs' => [ $song1, $song2, $song3, $song4 ] ] );
+// });
 
 
-    /**
-     * Feature to test seeing all veggies
-     */
-    public function testVeggiesSeeAll(): void
-    {
-      $response = $this->get('/veggies');
-
-      $response->assertStatus(200);
-
-      $response->assertSee('Baigan');
-      $response->assertSee('Bhindi');
-      $response->assertSee('Aaloo');
-      $response->assertSee('Gobhi');
-    }
-}
 ?>
-
