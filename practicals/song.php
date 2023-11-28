@@ -1,5 +1,5 @@
 <?php
-namespace practicals;
+namespace Practicals;
 
 use InvalidArgumentException;
 
