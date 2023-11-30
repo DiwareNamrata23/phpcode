@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use Practicals\Song;
+//use Practicals\song;
 use App\Models\Song;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,52 +22,44 @@ Route::get('/', function () {
 Route::get('/veggies', function () {
     return view('veggies');
 });
-Route::get('/veggies/{NameOfVeggie}', function (string $NameOfVeggie) {
-    return $NameOfVeggie;
+
+Route::get('/veggies/{veggieName}', function (string $veggieName){
+	return $veggieName;
+})->whereIn('veggieName',['baigan','bhindi','aaloo','gobhi']);
+/*
+Route::get('/songs_static', function () {
+    return "Songs";
 });
 
+Route::get('/songs_static', function () {
+    return view('songs');
+});
+*/
+Route::get('/songs_static', function () {
+  $song1 = new Song();
+  $song1->setTitle("Stan");
+  $song1->setArtist("Eminem");
 
-Route::get('/veggies/{NameOfVeggie}', function (string $NameOfVeggie) {
-    return $NameOfVeggie;
-})->whereIn('NameOfVeggie', ['aaloo', 'gobhi', 'bhindi','baigan']);
+  $song2 = new Song();
+  $song2->setTitle("New Song");
+  $song2->setArtist("Divyansh");
 
-/* Route::get('/songs_static', function () {
-    return view('songs_static');
+  $song3 = new Song();
+  $song3->setTitle("With You");
+  $song3->setArtist("A P Dhillon");
+
+  return view('songs', [ 'songs' => [ $song1, $song2, $song3 ] ]); 
 });
 
-Route::get('/songs_spotify', function () {
-    return view('songs_spotify');
-});
-
-// reading From database
 Route::get('/songs', function () {
     return view('songs', [ 'songs' => Song::all() ] );
 });
 
-Route::get('/playlist/{playlistId}', function (string $playlistId) {
-    return view('playlist', ['songs' => Song::all(), 'playlistId' => $playlistId ]);
-})->where('playlistId', '[0-9]+');
-*/
+Route::get('/songs_static', function () {
+    return view('songs_static');
+});
 
-// Route::get('/songs_static', function () {
-//     $song1 = new Song();
-//     $song1->setTitle("Stay With Me");
-//     $song1->setArtist("Chanyeol and Punch");
-
-//     $song2 = new Song();
-//     $song2->setTitle("Ice Cream");
-//     $song2->setArtist("BlankPink");
-
-//     $song3 = new Song();
-//     $song3->setTitle("Love you like a love song");
-//     $song3->setArtist("Salena Gomez");
-
-//     $song4 = new Song();
-//     $song4->setTitle("Monalisa");
-//     $song4->setArtist("mxmtoon");
-
-//     return view('songs',[ 'songs' => [ $song1, $song2, $song3, $song4 ] ] );
-// });
-
-
+Route::get('/playlists/{playlistId}', function (string $playlistId) {
+    return view('playlist',[ 'songs' => Song::all() ,'playlistId'=>$playlistId] );
+});
 ?>
