@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use Practicals\Song;
 
 class SongTest extends TestCase
 {
@@ -35,20 +36,20 @@ class SongTest extends TestCase
     }
 }
 
-class Song
-{
-    private $tempo;
+// class Song
+// {
+//     private $tempo;
 
-    public function setTempo($tempo)
-    {
-        if (!is_int($tempo) && (!is_string($tempo) || !ctype_digit($tempo))) {
-            throw new InvalidArgumentException("Tempo must be an integer or an integer string");
-        }
-        $this->tempo = (int)$tempo;
-    }
+//     public function setTempo($tempo)
+//     {
+//         if (!is_int($tempo) && (!is_string($tempo) || !ctype_digit($tempo))) {
+//             throw new InvalidArgumentException("Tempo must be an integer or an integer string");
+//         }
+//         $this->tempo = (int)$tempo;
+//     }
 
-    public function getTempo()
-    {
-        return $this->tempo;
-    }
-}
+//     public function getTempo()
+//     {
+//         return $this->tempo;
+//     }
+// }
