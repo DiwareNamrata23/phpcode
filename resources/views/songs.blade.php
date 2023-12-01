@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Music App</title>
 </head>
 <body>
 <h1>Namrata's Music App</h1>
@@ -13,14 +13,14 @@
     <tr>
         <th>Title: </th>
         <th>Artist: </th>
-        <th>Genre: </th>
-        <th>Tempo: </th>
+      <!--  <th>Genre: </th>
+        <th>Tempo: </th> -->
     </tr>
     <tr>
-        <td>{{ $song -> getTitle() }}</td>
-        <td>{{ $song -> getArtist() }}</td>
-        <td>{{ $song -> getGenre() }}</td>
-        <td>{{ $song -> getTempo() }}</td>
+        <td>{{ $song -> title}}</td>
+        <td>{{ $song -> artist }}</td>
+       <!-- <td>{{ $song -> getGenre() }}</td>
+       <td>{{ $song -> getTempo() }}</td> -->
 
 
     </tr>
