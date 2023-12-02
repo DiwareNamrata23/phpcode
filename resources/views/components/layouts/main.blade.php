@@ -4,81 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Playlist Manager</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-    }
+  <link href="{{ asset('css/layouts/main.css') }}" rel="stylesheet" />
 
-    header, footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-    }
-
-    header a, footer a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    main {
-      display: grid;
-      grid-template-columns: 250px 1fr;
-      grid-template-rows: auto 1fr;
-      min-height: 100vh;
-    }
-
-    #sidebar {
-      background-color: #eee;
-      padding: 20px;
-      border-right: 1px solid #ccc;
-    }
-
-    #main-content {
-      padding: 20px;
-    }
-
-    /* Playlist Table Styles */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-
-    th {
-      background-color: #333;
-      color: #fff;
-    }
-
-    /* Playlist Form Styles */
-    #playlist-form {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    #playlist-form input, #playlist-form select, #playlist-form button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      box-sizing: border-box;
-    }
-
-    #playlist-form button {
-      background-color: #333;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
 
