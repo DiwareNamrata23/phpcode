@@ -25,32 +25,7 @@
       <h2>Current Playlist</h2>
       <a href="#" style="float: right;">Edit Playlist</a>
       <a href="#" style="float: right; margin-right: 10px;">New Playlist</a>
-
-      <!-- Playlist Table -->
-      <table>
-        <thead>
-          <tr>
-            <th>Serial No</th>
-            <th>Song Title</th>
-            <th>Artist Name</th>
-            <th>Album Name</th>
-            <th>Duration</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Playlist rows go here -->
-        </tbody>
-      </table>
-
-      <!-- Playlist Form -->
-      <form id="playlist-form">
-        <input type="text" placeholder="Playlist Name">
-        <select>
-          <option value="" selected disabled>Select a Song</option>
-          <!-- List of songs goes here -->
-        </select>
-        <button type="submit">Save Playlist</button>
-      </form>
+      @yield('content')
     </div>
   </main>
 
